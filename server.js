@@ -22,7 +22,11 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+app.options('/products/:id', cors())
 app.get('/products/:id', function (req, res, next) {
+  res.json({msg: 'This is CORS-enabled for all origins!'})
+})
+app.del('/products/:id', cors(), function (req, res, next) {
   res.json({msg: 'This is CORS-enabled for all origins!'})
 })
 app.get('/', (req, res) => { res.send('it is working!') })
