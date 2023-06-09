@@ -12,6 +12,7 @@ const handleApiCall = (req, res) => {
     .catch(err => res.status(400).json('Unable to connect with API'))
 }
 
+
 const handleImage = (req, res, db) => {
     const { id } = req.body;
     db('users').where('id', '=', id)
