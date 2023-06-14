@@ -14,20 +14,34 @@ const db = knex({
   client: 'pg',
   connection: {
     connectionString: process.env.DATABASE_URL,
-    ssl: true
+    ssl: {
+      rejectUnauthorized: false
+    }
   }
 });
 
 // const db = knex({
 //   client: 'pg',
 //   connection: {
-//     host : '127.0.0.1',
-//     port : 5432,
-//     user : 'am',
-//     password : '',
-//     database : 'smart-brains'
-//     }
+//     host : 'ec2-3-234-204-26.compute-1.amazonaws.com',
+//     database : 'd3n8a5dhb2hra3',
+//     user : 'nxzxielqquogpq',
+//     post : 5432,
+//     password : '2c8613ef6048689371b89fc2c370b3df0a2e9e3f8b845e8eb6d37983e0b16c03',
+//     URI : 'postgres://nxzxielqquogpq:2c8613ef6048689371b89fc2c370b3df0a2e9e3f8b845e8eb6d37983e0b16c03@ec2-3-234-204-26.compute-1.amazonaws.com:5432/d3n8a5dhb2hra3'
+//   }
 // });
+
+const db = knex({
+  client: 'pg',
+  connection: {
+    host : '127.0.0.1',
+    port : 5432,
+    user : 'am',
+    password : '',
+    database : 'smart-brains'
+    }
+});
 
 // console.log(db.select('*').from('users'));
 // db.select('*').from('users').then(data => {
@@ -49,10 +63,10 @@ app.post('/imageurl', (req, res) => { image.handleApiCall(req, res) })
 
 
 
-// app.listen(3000, () => {
-//   console.log(`app is running on port 3000`);
-// })
-
-app.listen(process.env.PORT || 3000, () => {
-    console.log(`app is running on port ${process.env.PORT}`);
+app.listen(3000, () => {
+  console.log(`app is running on port 3000`);
 })
+
+// app.listen(process.env.PORT || 3000, () => {
+//     console.log(`app is running on port ${process.env.PORT}`);
+// })
