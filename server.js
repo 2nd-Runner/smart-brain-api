@@ -32,16 +32,16 @@ const db = knex({
 //   }
 // });
 
-const db = knex({
-  client: 'pg',
-  connection: {
-    host : '127.0.0.1',
-    port : 5432,
-    user : 'am',
-    password : '',
-    database : 'smart-brains'
-    }
-});
+// const db = knex({
+//   client: 'pg',
+//   connection: {
+//     host : '127.0.0.1',
+//     port : 5432,
+//     user : 'am',
+//     password : '',
+//     database : 'smart-brains'
+//     }
+// });
 
 // console.log(db.select('*').from('users'));
 // db.select('*').from('users').then(data => {
@@ -63,10 +63,10 @@ app.post('/imageurl', (req, res) => { image.handleApiCall(req, res) })
 
 
 
-app.listen(3000, () => {
-  console.log(`app is running on port 3000`);
-})
-
-// app.listen(process.env.PORT || 3000, () => {
-//     console.log(`app is running on port ${process.env.PORT}`);
+// app.listen(3000, () => {
+//   console.log(`app is running on port 3000`);
 // })
+
+app.listen(process.env.PORT || 3000, () => {
+    console.log(`app is running on port ${process.env.PORT}`);
+})
